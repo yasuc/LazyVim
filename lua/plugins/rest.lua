@@ -1,3 +1,6 @@
+if false then
+  return {}
+end
 return {
   "rest-nvim/rest.nvim",
   ft = "http",
