@@ -38,7 +38,7 @@ keymap.set("n", "<C-l>", "<C-w>l", opts)
 keymap.set("n", "Y", "y$", opts)
 
 -- ESC*2 でハイライトやめる
-keymap.set("n", "<Esc><Esc>", ":<C-u>set nohlsearch<Return>", opts)
+-- keymap.set("n", "<Esc><Esc>", ":<C-u>set nohlsearch<Return>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -66,9 +66,3 @@ keymap.set("n", ",r", ":Jaq quickfix<Return>", opts)
 keymap.set("n", "<Leader>U", "", { desc = " Convert char code" })
 keymap.set("n", "<leader>Uu", ":e ++enc=utf-8<Return>", { silent = true, desc = "convert to utf-8" })
 keymap.set("n", "<leader>Us", ":e ++enc=sjis<Return>", { silent = true, desc = "convert to sjis" })
-
--- keymap.set("n", "<Leader>;", "<Cmd>CodeiumToggle<CR>", {noremap = true, desc = "Toggle Codeium active" })
--- keymap.set("i", "<C-g>", function() return vim.fn["codeium#Accept"]() end, {expr = true})
--- keymap.set("i", "<C-;>", function() return vim.fn["codeium#CycleCompletions"](1) end, {expr = true, })
--- keymap.set("i", "<C-,>", function() return vim.fn["codeium#CycleCompletions"](-1) end, {expr = true, })
--- keymap.set("i", "<C-x>", function() return vim.fn["codeium#Clear"]() end, {expr = true,})
