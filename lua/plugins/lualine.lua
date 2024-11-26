@@ -1,19 +1,21 @@
-if false then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if false then
+  return {}
+end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 -- statusline
 local lsp_names = function()
   local clients = vim
-    .iter(vim.lsp.get_active_clients { bufnr = 0 })
+    .iter(vim.lsp.get_active_clients({ bufnr = 0 }))
     :map(function(client)
       if client.name == "null-ls" then
-        return ("null-ls(%s)"):format(
-          table.concat(
-            vim
-              .iter(require("null-ls.sources").get_available(vim.bo.filetype))
-              :map(function(source) return source.name end)
-              :totable(),
-            ", "
-          )
-        )
+        return ("null-ls(%s)"):format(table.concat(
+          vim
+            .iter(require("null-ls.sources").get_available(vim.bo.filetype))
+            :map(function(source)
+              return source.name
+            end)
+            :totable(),
+          ", "
+        ))
       else
         return client.name
       end
@@ -51,6 +53,7 @@ return {
             cond = require("lazy.status").has_updates,
             -- color = LazyVim.ui.fg("Special"),
           },
+          LazyVim.lualine.cmp_source("codeium"),
           lsp_names,
           { "encoding" },
           { "fileformat" },
