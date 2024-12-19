@@ -10,4 +10,12 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",
   },
+  keys = {
+    {
+      "<leader>um",
+      ft = "markdown",
+      "<cmd>Markview splitToggle<cr>",
+      desc = "Markview Split Toggle",
+    },
+  },
 }
