@@ -53,7 +53,7 @@ return {
             cond = require("lazy.status").has_updates,
             -- color = LazyVim.ui.fg("Special"),
           },
-          LazyVim.lualine.cmp_source("codeium"),
+          -- LazyVim.lualine.cmp_source("codeium"),
           lsp_names,
           { "encoding" },
           { "fileformat" },

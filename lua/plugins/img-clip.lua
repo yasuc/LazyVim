@@ -1,4 +1,6 @@
-if false then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if false then
+  return {}
+end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
   "HakonHarnes/img-clip.nvim",
   event = "VeryLazy",
