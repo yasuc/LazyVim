@@ -66,3 +66,20 @@ keymap.set("n", ",r", ":Jaq quickfix<Return>", opts)
 keymap.set("n", "<Leader>U", "", { desc = " Convert char code" })
 keymap.set("n", "<leader>Uu", ":e ++enc=utf-8<Return>", { silent = true, desc = "convert to utf-8" })
 keymap.set("n", "<leader>Us", ":e ++enc=sjis<Return>", { silent = true, desc = "convert to sjis" })
+
+-- floating terminal
+keymap.set("n", "<leader>fh", function()
+  Snacks.terminal({ "gh", "dash" })
+end, { desc = "gh dash" })
+
+-- Gitsighn
+keymap.set("n", "<leader>ghP", ":Gitsigns preview_hunk<CR>", { desc = "Gitsigns preview_hunk" })
+keymap.set("n", "<leader>ght", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Gitsigns toggle_current_line" })
+
+-- Oil
+keymap.set("n", "<Space>go", function()
+  require("oil").open()
+end, { desc = "Oil current buffer's directory" })
+vim.keymap.set("n", "<Space>gO", function()
+  require("oil").open(".")
+end, { desc = "Oil ." })
