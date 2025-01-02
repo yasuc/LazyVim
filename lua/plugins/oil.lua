@@ -5,7 +5,7 @@ return {
   "stevearc/oil.nvim",
   opts = {
     -- デフォルト設定をオーバーライド
-    default_file_explorer = true,
+    default_file_explorer = false,
     columns = {
       "icon",
       "size",
