@@ -72,6 +72,8 @@ keymap.set("n", "<leader>fh", function()
   Snacks.terminal({ "gh", "dash" })
 end, { desc = "gh dash" })
 
+keymap.set("n", "<leader>fm", ":lua vim.lsp.buf.format()<CR>", {desc = "Buf format"})
+
 -- Gitsighn
 keymap.set("n", "<leader>ghP", ":Gitsigns preview_hunk<CR>", { desc = "Gitsigns preview_hunk" })
 keymap.set("n", "<leader>ght", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Gitsigns toggle_current_line" })
