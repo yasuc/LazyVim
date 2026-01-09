@@ -2,7 +2,7 @@ if false then
   return {}
 end
 return {
-  "williamboman/mason.nvim",
+  "mason-org/mason.nvim",
   cmd = {
     "Mason",
     "MasonInstall",
