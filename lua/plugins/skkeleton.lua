@@ -6,7 +6,10 @@ return {
   keys = {
     { "<C-j>", "<Plug>(skkeleton-enable)", noremap = false, mode = "i" },
     { "<C-j>", "<Plug>(skkeleton-enable)", noremap = false, mode = "c" },
+    { "<C-@>", "<Plug>(skkeleton-disable)", noremap = false, mode = "i" },
+    { "<C-@>", "<Plug>(skkeleton-disable)", noremap = false, mode = "c" },
   },
+
   dependencies = {
     "vim-denops/denops.vim",
     -- "Shougo/ddc.vim",
