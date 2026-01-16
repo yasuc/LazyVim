@@ -1,5 +1,3 @@
--- Use your favorite package manager to install, for example in lazy.nvim
---  Optionally, you can also install nvim-telescope/telescope.nvim to use some search functionality.
 if false then
   return {}
 end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
@@ -9,8 +7,9 @@ return {
     -- add any options here
     cli = {
       mux = {
-        backend = "zellij",
-        enabled = true,
+        -- backend = "zellij",
+        backend = "none",
+        enabled = false,
       },
     },
   },
