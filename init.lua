@@ -2,6 +2,7 @@
 require("config.lazy")
 require("config.emmet-ms")
 require("config.browser")
+require("config.neovide_config")
 
 require("tokyonight").setup({
   transparent = true,
