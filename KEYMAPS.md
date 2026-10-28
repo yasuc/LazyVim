@@ -15,6 +15,12 @@
 | Sidekick | `Space as` | 使用するAI CLIを選ぶ |
 | Sidekick | `Space ap` | プロンプトを選ぶ |
 | uv | `Space V`／`Space Vr` | メニュー／Pythonファイルの実行 |
+| タスク実行 | `Space oo` | Overseerでプロジェクトのタスクを選択・実行 |
+| タスク一覧 | `Space ow` | Overseerのタスク一覧を開閉 |
+| タスク操作 | `Space ot` | 再実行・停止などを選択 |
+| 手動フォーマット | `Space fm` | 保存時と同じLazyVimのフォーマット処理を実行 |
+| 診断移動 | `]d`／`[d` | 次／前の診断へ移動 |
+| 半画面スクロール | `Ctrl-d`／`Ctrl-u` | 下／上へ半画面移動 |
 | Markdown | `Space um` | エディタ内の装飾表示を切り替える |
 | Markdown | `Space cp` | ブラウザプレビューを切り替える |
 | シンボル一覧 | `Space cs` | Aerialを開閉する |
@@ -30,6 +36,7 @@
 ## 補足
 
 - Yaziの画像は中央のフローティング表示です。
+- SidekickはAI CLI連携専用です。CopilotのNext Edit Suggestions（NES）は無効です。`Ctrl-.`でCLIへフォーカスし、`Space aa`で開閉します。
 - Copilot関連機能にはGitHub認証が必要です。`:Copilot auth`から設定できます。
 - uvのキーはPythonファイルを開くか、UV系コマンドでプラグインを読み込むと有効になります。
 - OpenCodeの質問入力欄は`Esc`で閉じられます。ターミナル画面を非表示にするには、`Ctrl-\` → `Ctrl-n`でノーマルモードへ戻り、`:hide`を実行します。
@@ -54,3 +61,11 @@ curl -fL https://raw.githubusercontent.com/skk-dev/dict/master/SKK-JISYO.L \
 - skkeletonにはDenoが必要です。初回使用時にはdenopsの依存パッケージを取得するためのネット接続も必要です。
 - Neovim内のYazi画像プレビューには、Wayland環境では標準パッケージのÜberzug++を使用します。独自ビルドや専用PATHの設定は使っていません。
 - この環境の中央フローティング表示と点滅防止は、リポジトリ外の`~/.config/hypr/hyprland.lua`にある画像用ウィンドウルールにも依存します。[設定内容・別マシンへの追加手順](HYPRLAND.md)を参照してください。
+
+## 更新と設定管理
+
+- [プラグイン更新・復元の手順](MAINTENANCE.md)
+- 開発言語はPython・Go・Rustです。Markdown・Git・Linux設定ファイルの編集支援も有効です。
+- `Ctrl-n`／`Ctrl-p`は補完候補の選択、`Ctrl-b`／`Ctrl-f`は補完説明のスクロールというBlink標準の操作を使います。候補がない場合は各キーの通常動作へフォールバックします。
+- Visualモードの`v`は標準動作に戻しています。
+- ステータスラインはLazyVim標準の画面下部に一つの表示です。

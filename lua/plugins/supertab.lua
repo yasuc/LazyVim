@@ -6,7 +6,7 @@ return {
         "select_next",
         "snippet_forward",
         function()
-          return LazyVim.cmp.map({ "ai_nes", "ai_accept" })()
+          return LazyVim.cmp.map({ "ai_accept" })()
         end,
         function(cmp)
           local col = vim.api.nvim_win_get_cursor(0)[2]

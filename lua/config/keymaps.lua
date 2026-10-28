@@ -1,80 +1,28 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
--- Modes
---   normal_mode = 'n',
---   insert_mode = 'i',
---   visual_mode = 'v',
---   visual_block_mode = 'x',
---   term_mode = 't',
---   command_mode = 'c',
+-- LazyVim provides window navigation, indentation and [d / ]d diagnostics.
+local map = vim.keymap.set
 
--- set leader key to space
-local opts = { noremap = true, silent = true }
+map("n", "<leader>nh", "<cmd>nohlsearch<cr>", { desc = "Clear search highlights" })
+map("i", "jk", "<Esc>", { desc = "Exit insert mode with jk" })
+map("i", "<C-e>", "<End>", { desc = "End of line" })
+map("i", "<C-a>", "<Home>", { desc = "Start of line" })
 
-local keymap = vim.keymap -- for conciseness
+-- Keep the lightweight single-file runner alongside Overseer's project tasks.
+map("n", ",r", "<cmd>Jaq quickfix<cr>", { desc = "Run current file (Jaq)" })
 
--- General Keymaps -------------------
+-- Reload using the selected encoding (does not change the file on disk).
+map("n", "<leader>Uu", "<cmd>edit ++enc=utf-8<cr>", { desc = "Reload as UTF-8" })
+map("n", "<leader>Us", "<cmd>edit ++enc=sjis<cr>", { desc = "Reload as Shift-JIS" })
 
--- clear search highlights
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
-
--- Diagnostics
-keymap.set("n", "<C-d>", function()
-  vim.diagnostic.jump({ count = 1, float = true })
-end, opts)
-
--- Normal --
--- Better window navigation
-keymap.set("n", "<C-h>", "<C-w>h", opts)
-keymap.set("n", "<C-j>", "<C-w>j", opts)
-keymap.set("n", "<C-k>", "<C-w>k", opts)
-keymap.set("n", "<C-l>", "<C-w>l", opts)
-
--- 行末までのヤンクにする
-keymap.set("n", "Y", "y$", opts)
-
--- ESC*2 でハイライトやめる
--- keymap.set("n", "<Esc><Esc>", ":<C-u>set nohlsearch<Return>", opts)
-
--- Visual --
--- Stay in indent mode
-keymap.set("v", "<", "<gv", opts)
-keymap.set("v", ">", ">gv", opts)
-
--- ビジュアルモード時vで行末まで選択
-keymap.set("v", "v", "$h", opts)
-
--- use jk to exit insert mode
-keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
-
--- insert mode での移動
-keymap.set("i", "<C-e>", "<END>", opts)
-keymap.set("i", "<C-a>", "<HOME>", opts)
-keymap.set("i", "<C-n>", "<Down>", opts)
-keymap.set("i", "<C-p>", "<Up>", opts)
-keymap.set("i", "<C-b>", "<Left>", opts)
-keymap.set("i", "<C-f>", "<Right>", opts)
-
--- jqa
-keymap.set("n", ",r", ":Jaq quickfix<Return>", opts)
-
--- 文字コードの変更
-keymap.set("n", "<Leader>U", "", { desc = " Convert char code" })
-keymap.set("n", "<leader>Uu", ":e ++enc=utf-8<Return>", { silent = true, desc = "convert to utf-8" })
-keymap.set("n", "<leader>Us", ":e ++enc=sjis<Return>", { silent = true, desc = "convert to sjis" })
-
--- floating terminal
-keymap.set("n", "<leader>fh", function()
+map("n", "<leader>fh", function()
   Snacks.terminal({ "gh", "dash" })
 end, { desc = "gh dash" })
 
-keymap.set("n", "<leader>fm", ":lua vim.lsp.buf.format()<CR>", {desc = "Buf format"})
+-- Use the same formatter selection as LazyVim's save-time formatting.
+map({ "n", "x" }, "<leader>fm", function()
+  LazyVim.format({ force = true })
+end, { desc = "Format with LazyVim" })
 
--- Gitsighn
-keymap.set("n", "<leader>ghP", ":Gitsigns preview_hunk<CR>", { desc = "Gitsigns preview_hunk" })
-keymap.set("n", "<leader>ght", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Gitsigns toggle_current_line" })
-
--- File manager (loaded on demand by yazi.nvim).
-keymap.set("n", "<Space>go", "<cmd>Yazi<cr>", { desc = "Yazi current file" })
-keymap.set("n", "<Space>gO", "<cmd>Yazi cwd<cr>", { desc = "Yazi working directory" })
+map("n", "<leader>ghP", "<cmd>Gitsigns preview_hunk<cr>", { desc = "Preview Git hunk" })
+map("n", "<leader>ght", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "Toggle Git line blame" })
+map("n", "<leader>go", "<cmd>Yazi<cr>", { desc = "Yazi current file" })
+map("n", "<leader>gO", "<cmd>Yazi cwd<cr>", { desc = "Yazi working directory" })
