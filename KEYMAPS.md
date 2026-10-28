@@ -53,4 +53,4 @@ curl -fL https://raw.githubusercontent.com/skk-dev/dict/master/SKK-JISYO.L \
 
 - skkeletonにはDenoが必要です。初回使用時にはdenopsの依存パッケージを取得するためのネット接続も必要です。
 - Neovim内のYazi画像プレビューには、Wayland環境では標準パッケージのÜberzug++を使用します。独自ビルドや専用PATHの設定は使っていません。
-- この環境の中央フローティング表示と点滅防止は、リポジトリ外の`~/.config/hypr/hyprland.lua`にある画像用ウィンドウルールにも依存します。
+- この環境の中央フローティング表示と点滅防止は、リポジトリ外の`~/.config/hypr/hyprland.lua`にある画像用ウィンドウルールにも依存します。[設定内容・別マシンへの追加手順](HYPRLAND.md)を参照してください。
