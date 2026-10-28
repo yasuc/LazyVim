@@ -1,9 +1,6 @@
-if false then
-  return {}
-end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
   "HakonHarnes/img-clip.nvim",
-  event = "VeryLazy",
+  cmd = { "PasteImage", "ImgClipDebug", "ImgClipConfig" },
   opts = {
     default = {
       -- -- file and directory options

@@ -1,18 +1,20 @@
-if false then
-  return {}
-end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
   "folke/sidekick.nvim",
+  event = "VeryLazy",
   opts = {
     -- add any options here
     cli = {
       mux = {
         -- backend = "zellij",
-        backend = "none",
         enabled = false,
       },
     },
   },
+  init = function()
+    LazyVim.cmp.actions.ai_nes = function()
+      return require("sidekick").nes_jump_or_apply()
+    end
+  end,
   keys = {
     {
       "<tab>",

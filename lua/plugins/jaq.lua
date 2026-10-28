@@ -1,9 +1,6 @@
-if false then
-  return {}
-end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
   "is0n/jaq-nvim",
-  --  event = "VeryLazy",
+  cmd = "Jaq",
   config = function()
     require("jaq-nvim").setup({
       cmds = {

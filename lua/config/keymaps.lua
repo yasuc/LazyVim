@@ -1,6 +1,3 @@
-if false then
-  return {}
-end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
@@ -24,7 +21,7 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Diagnostics
 keymap.set("n", "<C-d>", function()
-  vim.diagnostic.goto_next()
+  vim.diagnostic.jump({ count = 1, float = true })
 end, opts)
 
 -- Normal --
@@ -78,10 +75,6 @@ keymap.set("n", "<leader>fm", ":lua vim.lsp.buf.format()<CR>", {desc = "Buf form
 keymap.set("n", "<leader>ghP", ":Gitsigns preview_hunk<CR>", { desc = "Gitsigns preview_hunk" })
 keymap.set("n", "<leader>ght", ":Gitsigns toggle_current_line_blame<CR>", { desc = "Gitsigns toggle_current_line" })
 
--- Oil
-keymap.set("n", "<Space>go", function()
-  require("oil").open()
-end, { desc = "Oil current buffer's directory" })
-vim.keymap.set("n", "<Space>gO", function()
-  require("oil").open(".")
-end, { desc = "Oil ." })
+-- File manager (loaded on demand by yazi.nvim).
+keymap.set("n", "<Space>go", "<cmd>Yazi<cr>", { desc = "Yazi current file" })
+keymap.set("n", "<Space>gO", "<cmd>Yazi cwd<cr>", { desc = "Yazi working directory" })

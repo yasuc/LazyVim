@@ -1,4 +1,3 @@
-if false then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 -- emmet parserの実装
 local lpeg = vim.lpeg
 local name = (lpeg.P(1) - lpeg.S "#.[>") ^ 1
@@ -67,7 +66,7 @@ local function totag(x)
 end
 
 -- mini.surroundの設定
-require("mini.surround").setup {
+return {
   n_lines = 100,
   custom_surroundings = {
     t = {

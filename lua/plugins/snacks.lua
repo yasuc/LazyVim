@@ -43,7 +43,10 @@ return {
           icon = " ",
           title = "Git Status",
           section = "terminal",
-          enabled = vim.fn.isdirectory(".git") == 1,
+          enabled = function()
+            local result = vim.fn.system({ "git", "rev-parse", "--is-inside-work-tree" })
+            return vim.v.shell_error == 0 and result:match("^true") ~= nil
+          end,
           cmd = "hub status --short --branch --renames",
           height = 5,
           padding = 1,

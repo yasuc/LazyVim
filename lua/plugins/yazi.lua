@@ -1,10 +1,7 @@
-if false then
-  return {}
-end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 ---@type LazySpec
 return {
   "mikavilpas/yazi.nvim",
-  event = "VeryLazy",
+  cmd = "Yazi",
   keys = {
     -- 👇 in this section, choose your own keymappings!
     {
